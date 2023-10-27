@@ -1,45 +1,33 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Preparação') {
             steps {
-                // Coloque aqui as etapas de preparação, como clonar o repositório, instalar dependências, etc.
+                // Etapas de preparação, como clonar o repositório, instalar dependências, etc.
+                sh 'echo "Executando etapa de preparação"'
             }
         }
-        
+
         stage('Construção') {
             steps {
-                // Coloque aqui as etapas para construir seu aplicativo ou projeto.
+                // Etapas para construir seu aplicativo ou projeto.
+                sh 'echo "Executando etapa de construção"'
             }
         }
-        
+
         stage('Testes') {
             steps {
-                // Coloque aqui as etapas para executar testes automatizados.
+                // Etapas para executar testes automatizados.
+                sh 'echo "Executando etapa de testes"'
             }
         }
-        
+
         stage('Implantação') {
-            when {
-                // Coloque aqui uma condição para determinar se a implantação deve ocorrer.
-                // Por exemplo, pode ser baseada em um branch específico ou em uma variável de ambiente.
-                expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
-            }
             steps {
-                // Coloque aqui as etapas para implantar seu aplicativo.
+                // Etapas para implantar seu aplicativo.
+                sh 'echo "Executando etapa de implantação"'
             }
-        }
-    }
-    
-    post {
-        success {
-            // Coloque ações a serem executadas em caso de sucesso.
-            // Por exemplo, notificar uma equipe ou enviar uma mensagem de sucesso.
-        }
-        failure {
-            // Coloque ações a serem executadas em caso de falha.
-            // Por exemplo, notificar a equipe ou enviar uma mensagem de falha.
         }
     }
 }
