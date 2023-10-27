@@ -28,6 +28,14 @@ pipeline {
                 // Etapas para implantar seu aplicativo.
                 sh 'echo "Executando etapa de implantação"'
             }
+            {
+        stage('Horusec') {
+        steps {
+            sh 'curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest'
+            sh 'horusec start -p="./" -e="true"'
+        }
+    }
+}
         }
     }
 }
