@@ -26,8 +26,8 @@ pipeline {
         
         stage('Security') {
           steps {
-            sh 'curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest'
-            sh 'horusec start -p="./" -e="true"'
+            sh 'ulimit -n 4096'
+            sh 'horusec start -D -p . -w -a 28f038db-d5f6-4b73-9730-f50a39842e89 -e="true" -i **/*.crt,**/pt-BR.json,kkk**/*.pem,**/*helpers*,**/*Test*,**/README.md,**/*.key,**/*spec.tsx,**/*keycloak.ts'
         }
     }
 
