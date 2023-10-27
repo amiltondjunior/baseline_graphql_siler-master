@@ -23,7 +23,7 @@ pipeline {
         stage('Security') {
           steps {
             sh 'ulimit -n 4096'
-            sh 'horusec start -D -p . -w -e="true" -i **/*.crt,**/pt-BR.json,**/*.pem,**/*helpers*,**/*Test*,**/README.md,**/*.key,**/*spec.tsx,**/*keycloak.ts'
+            sh 'horusec start -D -p . -w -e="true"'
         }
     }
 
